@@ -25,7 +25,7 @@ function TaskCard(props) {
 
         <div className="card-footer">
             <button className="task-btn" onClick={handleClick}>
-                Click me!
+                Delete
             </button>
             <DateContainer date={props.dueDate} />
         </div>

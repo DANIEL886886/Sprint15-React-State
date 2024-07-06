@@ -21,7 +21,7 @@ function App() {
 
 			<div className="side-bar-right">
 				<div className="side-bar-card">
-					<h3>Right Side Bar</h3>
+					<h3>Create Task</h3>
 					<TaskForm />
 				</div>
 			</div>

@@ -2,16 +2,17 @@
   min-height: 100vh;
   display: flex;
   padding: 30px;
-  max-height: 100vh;
+  max-height: auto;
 }
 
 .app-content {
-  flex: 1;
   display: flex;
   flex-wrap: wrap;
   flex-direction: flex-start;
-  /* grid-template-columns: 25%  25% minmax(20%, 25%);
-  gap: 40px; */
+  justify-content: center;
+  background:rgba(32, 56, 85, 0.062);
+  border-radius: 50px;
+  max-width: fit-content;
 }
 
 .app-content h3 {
@@ -38,12 +39,7 @@
 }
 
 .side-bar-right {
-  width: 30%;
-}
-
-.right-side-bar{
-  display: flex;
-  background:black;
-  width: 40px;
-  height: 40px;
+  width: 25%;
+  margin-right:10px;
+  margin-left:30px;
 }
