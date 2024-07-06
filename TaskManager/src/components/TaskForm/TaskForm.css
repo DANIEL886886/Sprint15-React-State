@@ -25,6 +25,7 @@
 textarea {
   border-radius:12px;
   border-color: #2c2e3a70;
+  text-indent: 10px;
 }
 
 textarea.input-primary {

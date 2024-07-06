@@ -1,23 +1,44 @@
 import "./TaskForm.css"
-import React from "react";
+import React, {useState} from "react";
 
 function TaskForm() {
 
-    const handleNameChange = (event) => { 
-        console.log(event.target.value)
-    }
+        const [taskName, setTaskName] = useState("");
+        const [dueDate, setDueDate] = useState("");
+        const [taskDetails, setTaskDetails] = useState("");
 
-    const handleDateChange = (event) => {
-        console.log(event.target.value);
-    }
+        const handleNameChange = (event) => { 
+            setTaskName(event.target.value)
+        }
 
-    const handleDetailsChange = (event) => {
-        console.log(event.target.value);
-    }
+        const handleDateChange = (event) => {
+            setDueDate(event.target.value);
+        }
+
+        const handleDetailsChange = (event) => {
+            setTaskDetails(event.target.value);
+        }
+
+        const handleSubmit = (event) => {
+            event.preventDefault();
+
+            // console.log("taskName = " + taskName);
+            // console.log("dueDate = " + dueDate);
+            // console.log("taskdetails = " + taskDetails);
+
+            const newTask = {
+                name: taskName,
+                date: dueDate,
+                taskDetails: taskDetails,
+                status: "To do",
+            };
+
+            console.log("New Task is : " , newTask)
+        }
 
     return (
 		<div>
-			<form>
+			<form onSubmit={handleSubmit}>
 				<div className="form-row">
 					<label>Task Name</label>
 					<input
@@ -38,12 +59,15 @@ function TaskForm() {
 
 				<div className="form-row">
 					<label>Task details</label>
-					<input
+					<textarea
 						onChange={handleDetailsChange}
 						className="input-primary"
 						type="text"
-					/>
-					<textarea name="" id="" cols="30" rows="10"></textarea>
+                        name=""
+                        id=""
+                        cols="3"
+                        rows="10"
+                    />                   
 				</div>
 
 				<button type="submit">Create Task</button>
