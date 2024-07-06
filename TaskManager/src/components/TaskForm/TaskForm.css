@@ -22,6 +22,11 @@
   font-family: "Sen", sans-serif;
 }
 
+textarea {
+  border-radius:12px;
+  border-color: #2c2e3a70;
+}
+
 textarea.input-primary {
   resize: none;
 }
