@@ -32,10 +32,15 @@ textarea.input-primary {
   resize: none;
 }
 
+.form-btn-wrapper{
+  display:flex;
+  justify-content: center;
+}
+
 .button-primary {
   background: #3754db;
   border-radius: 12px;
-  padding: 19px 74px;
+  padding: 5% 35%;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;

@@ -89,7 +89,10 @@ function TaskForm() {
 					/>
 				</div>
 
-				<button classname="task-btn" type="submit">Create Task</button>
+                <div className="form-btn-wrapper">
+				    <button className="button-primary" type="submit">Create Task</button>
+                </div>
+
 			</form>
 		</div>
 	);
