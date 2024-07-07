@@ -3,11 +3,30 @@ import React, {useState} from "react";
 
 function TaskForm() {
 
+    const initialFormData = {
+		taskName: "",
+		dueDate: "",
+		taskDetails: "",
+	};
+
     const [formData, setFormData] = useState({
         taskName: "",
         dueDate: "",
         taskDetails: "",
-        })
+    })
+    
+    const handleInputChange = (event) => {
+		setFormData((prevState) => ({
+			...prevState,
+			[event.target.name]: event.target.value,
+		}));
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+        console.log("FormData is : ", formData);
+        setFormData({...initialFormData})
+	};
     
     // const handleNameChange = (event) => { 
     //     setFormData((prevState) => ({
@@ -30,19 +49,6 @@ function TaskForm() {
     //         taskDetails: event.target.value,
     //     }));
     // }
-
-    const handleInputChange = (event) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value
-            })
-        );
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log("FormData is : ", formData)
-    }
 
     return (
 		<div>
@@ -83,7 +89,7 @@ function TaskForm() {
 					/>
 				</div>
 
-				<button type="submit">Create Task</button>
+				<button classname="task-btn" type="submit">Create Task</button>
 			</form>
 		</div>
 	);
