@@ -1,21 +1,21 @@
 import "./TaskForm.css"
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-function TaskForm() {
-
-    const initialFormData = {
+function TaskForm(props) {
+	const initialFormData = {
 		taskName: "",
 		dueDate: "",
 		taskDetails: "",
 	};
 
-    const [formData, setFormData] = useState({
-        taskName: "",
-        dueDate: "",
-        taskDetails: "",
-    })
-    
-    const handleInputChange = (event) => {
+	const [formData, setFormData] = useState({
+		taskName: "",
+		dueDate: "",
+		taskDetails: "",
+		status: "To do",
+	});
+
+	const handleInputChange = (event) => {
 		setFormData((prevState) => ({
 			...prevState,
 			[event.target.name]: event.target.value,
@@ -24,33 +24,37 @@ function TaskForm() {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-        console.log("FormData is : ", formData);
-        setFormData({...initialFormData})
-	};
-    
-    // const handleNameChange = (event) => { 
-    //     setFormData((prevState) => ({
-    //         ...prevState,
-    //         taskName: event.target.value
-    //         })
-    //     );
-    // }
+		console.log("FormData is : ", formData);
+		setFormData({ ...initialFormData });
 
-    // const handleDateChange = (event) => {
-    //     setFormData((prevState) => ({
+		// bond to create new task
+		props.addNewTask(formData);
+		// ............................
+	};
+
+	// const handleNameChange = (event) => {
+	//     setFormData((prevState) => ({
+	//         ...prevState,
+	//         taskName: event.target.value
+	//         })
+	//     );
+	// }
+
+	// const handleDateChange = (event) => {
+	//     setFormData((prevState) => ({
 	// 		...prevState,
 	// 		dueDate: event.target.value,
-    //     }));
-    // }
+	//     }));
+	// }
 
-    // const handleDetailsChange = (event) => {
-    //     setFormData((prevState) => ({
-    //         ...prevState,
-    //         taskDetails: event.target.value,
-    //     }));
-    // }
+	// const handleDetailsChange = (event) => {
+	//     setFormData((prevState) => ({
+	//         ...prevState,
+	//         taskDetails: event.target.value,
+	//     }));
+	// }
 
-    return (
+	return (
 		<div>
 			<form onSubmit={handleSubmit}>
 				<div className="form-row">
@@ -89,10 +93,11 @@ function TaskForm() {
 					/>
 				</div>
 
-                <div className="form-btn-wrapper">
-				    <button className="button-primary" type="submit">Create Task</button>
-                </div>
-
+				<div className="form-btn-wrapper">
+					<button className="button-primary" type="submit">
+						Create Task
+					</button>
+				</div>
 			</form>
 		</div>
 	);

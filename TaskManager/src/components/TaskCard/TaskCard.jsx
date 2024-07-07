@@ -8,7 +8,8 @@ function TaskCard(props) {
   const [taskId, setTaskId] = useState(props.id)
 
 	const handleClick = () => { 
-	setTaskId("Clicked !")
+  setTaskId("Clicked !")
+  
 	console.log(taskId);
   }
 
