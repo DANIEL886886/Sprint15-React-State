@@ -8,9 +8,8 @@ function TaskCard(props) {
   const [taskId, setTaskId] = useState(props.id)
 
 	const handleClick = () => { 
-  setTaskId("Clicked !")
-  
-	console.log(taskId);
+    // console.log(taskId);
+    props.onDeleteTask(props.id);
   }
 
   return (
@@ -21,7 +20,7 @@ function TaskCard(props) {
         </div>
 
         <div className="card-content">
-            <p>{props.name}</p>
+            <p>{props.details}</p>
         </div>
 
         <div className="card-footer">

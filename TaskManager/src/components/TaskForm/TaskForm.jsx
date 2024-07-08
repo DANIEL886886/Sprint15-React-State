@@ -3,16 +3,15 @@ import React, { useState } from "react";
 
 function TaskForm(props) {
 	const initialFormData = {
-		taskName: "",
+		status:"",
 		dueDate: "",
-		taskDetails: "",
+		details: "",
 	};
 
 	const [formData, setFormData] = useState({
-		taskName: "",
+		status: "",
 		dueDate: "",
-		taskDetails: "",
-		status: "To do",
+		details: "",
 	});
 
 	const handleInputChange = (event) => {
@@ -25,6 +24,7 @@ function TaskForm(props) {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log("FormData is : ", formData);
+		//initial state of "formData"
 		setFormData({ ...initialFormData });
 
 		// bond to create new task
@@ -58,10 +58,10 @@ function TaskForm(props) {
 		<div>
 			<form onSubmit={handleSubmit}>
 				<div className="form-row">
-					<label>Task Name</label>
+					<label>Task Status</label>
 					<input
-						value={formData.taskName}
-						name="taskName"
+						value={formData.status}
+						name="status"
 						onChange={handleInputChange}
 						className="input-primary"
 						type="text"
@@ -82,8 +82,8 @@ function TaskForm(props) {
 				<div className="form-row">
 					<label>Task details</label>
 					<textarea
-						value={formData.taskDetails}
-						name="taskDetails"
+						value={formData.details}
+						name="details"
 						onChange={handleInputChange}
 						className="input-primary"
 						type="text"

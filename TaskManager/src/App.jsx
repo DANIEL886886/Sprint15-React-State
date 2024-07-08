@@ -5,23 +5,27 @@ import TaskCard from "./components/TaskCard/TaskCard";
 import TaskForm from "./components/TaskForm/TaskForm";
 
 function App() {
-
+    
     const [taskList, setTaskList] = useState(data);
+
+    //function to delete a task card
+    const onDeleteTask = (id) => {
+		setTaskList(taskList.filter((task) => task.id !== id));
+	};
 	
 	const addNewTask = (formData) => {
-        console.log("task from APP.js: ", formData);
-
+        // console.log("task from APP.js: ", formData);
 		// modification for "formdata" in order to
 		// compli with the format from the "data" list of objects
         setTaskList((prevState) => [
-            ...prevState,
-            {
-                ...formData,
-                dueDate: new Date(formData.dueDate),
-                id: "T-" + prevState.length + 1,
-            },
-        ]);
-        console.log(setTaskList);
+			...prevState,
+			{
+				...formData,
+				dueDate: new Date(formData.dueDate),
+				id: "T-" + prevState.length,
+			},
+		]);
+        // console.log(setTaskList);
 	};
 
 	return (
@@ -32,8 +36,9 @@ function App() {
 						key={index}
 						id={props.id}
 						status={props.status}
-						name={props.name}
+						details={props.details}
 						dueDate={props.dueDate}
+						onDeleteTask={onDeleteTask}
 					/>
 				))}
 			</div>
@@ -41,7 +46,7 @@ function App() {
 			<div className="side-bar-right">
 				<div className="side-bar-card">
 					<h3>Create Task</h3>
-					<TaskForm addNewTask={addNewTask}/>
+					<TaskForm addNewTask={addNewTask} />
 				</div>
 			</div>
 		</div>
