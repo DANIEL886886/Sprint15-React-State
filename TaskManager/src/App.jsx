@@ -7,15 +7,12 @@ import TaskForm from "./components/TaskForm/TaskForm";
 function App() {
  const [taskList, setTaskList] = useState(data);
 
- // //function to delete a task card
  const onDeleteTask = (id) => {
  setTaskList(taskList.filter((task) => task.id !== id));
 };
 
 const addNewTask = (formData) => {
  // console.log("task from APP.js: ", formData);
- // modification for "formdata" in order to
- // compli with the format from the "data" list of objects
  setTaskList((prevState) => [
    ...prevState,
   {
@@ -47,7 +44,7 @@ return (
  </div>
 
  <div className="side-bar-right">
-  <div className="side-bar-card">
+ <div className="side-bar-card">
    <h3>Create Task</h3>
    <TaskForm addNewTask={addNewTask} />
   </div>

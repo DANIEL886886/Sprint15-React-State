@@ -35,7 +35,7 @@ function TaskCard(props) {
     <DateContainer date={props.dueDate} />
     {props.isFocused ? (<button className="task-btn" onClick={handleClick}>Delete</button>) : ("")}
 	 </div>
- </div>
+  </div>
 );
 }
 
