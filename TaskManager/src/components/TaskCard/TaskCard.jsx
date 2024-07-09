@@ -13,8 +13,6 @@ function TaskCard(props) {
  };
 
  const focusedClass = props.isFocused ? "focused" : "";
-
- const focusedBtnClass = props.isFocused ? "focusedbtn" : "";
   
  function setFocused() {
   props.markAsFocus()
