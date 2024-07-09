@@ -57,3 +57,23 @@
   color: white;
   border-radius: 10px 10px 10px 10px;
 }
+
+
+@keyframes border-animation {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(255, 33, 3);
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* Applying animations to respective classes */
+.card-wrapper.focused {
+  border-color: #fd1100;
+  border-style: solid;
+  animation: border-animation 2s linear infinite;
+}

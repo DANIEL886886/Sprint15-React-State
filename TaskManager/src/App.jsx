@@ -5,19 +5,18 @@ import TaskCard from "./components/TaskCard/TaskCard";
 import TaskForm from "./components/TaskForm/TaskForm";
 
 function App() {
-    
-    const [taskList, setTaskList] = useState(data);
+	const [taskList, setTaskList] = useState(data);
 
-    //function to delete a task card
-    const onDeleteTask = (id) => {
+	// //function to delete a task card
+	const onDeleteTask = (id) => {
 		setTaskList(taskList.filter((task) => task.id !== id));
 	};
-	
+
 	const addNewTask = (formData) => {
-        // console.log("task from APP.js: ", formData);
+		// console.log("task from APP.js: ", formData);
 		// modification for "formdata" in order to
 		// compli with the format from the "data" list of objects
-        setTaskList((prevState) => [
+		setTaskList((prevState) => [
 			...prevState,
 			{
 				...formData,
@@ -25,14 +24,18 @@ function App() {
 				id: "T-" + prevState.length,
 			},
 		]);
-        // console.log(setTaskList);
+		// console.log(setTaskList);
 	};
+
+	const [focusTaskId, setFocusTaskId] = useState("");
 
 	return (
 		<div className="app-container">
 			<div className="app-content">
 				{taskList.map((props, index) => (
 					<TaskCard
+						isFocused={focusTaskId === props.id}
+						markAsFocus={() => setFocusTaskId(props.id)}
 						key={index}
 						id={props.id}
 						status={props.status}
@@ -51,7 +54,6 @@ function App() {
 			</div>
 		</div>
 	);
-	
 }
 
 export default App;
